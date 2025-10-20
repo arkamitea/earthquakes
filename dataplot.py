@@ -1,5 +1,4 @@
 from datetime import date
-
 import matplotlib.pyplot as plt
 import requests
 import json
@@ -66,6 +65,7 @@ def plot_average_magnitude_per_year(earthquakes):
     plt.figure(figsize=(10, 5))
     plt.bar(years, counts, color="skyblue", edgecolor="black")
     plt.title("Number of Earthquakes per Year (2000–2018)")
+    plt.xticks(range(2000,2019,1))
     plt.xlabel("Year")
     plt.ylabel("Number of Earthquakes")
     plt.grid(axis="y", linestyle="--", alpha=0.7)
@@ -79,6 +79,7 @@ def plot_number_per_year(earthquakes):
     avg_mags = [sum(magnitudes_per_year[y]) / len(magnitudes_per_year[y]) for y in years]
 
     plt.figure(figsize=(10, 5))
+    plt.xticks(range(2000,2019,1))
     plt.plot(years, avg_mags, marker="o", color="orange", linewidth=2)
     plt.title("Average Earthquake Magnitude per Year (2000–2018)")
     plt.xlabel("Year")
@@ -94,5 +95,5 @@ quakes = get_data()['features']
 # Plot the results - this is not perfect since the x axis is shown as real
 # numbers rather than integers, which is what we would prefer!
 plot_number_per_year(quakes)
-plt.clf()  # This clears the figure, so that we don't overlay the two plots
+plt.clf# This clears the figure, so that we don't overlay the two plots
 plot_average_magnitude_per_year(quakes)
