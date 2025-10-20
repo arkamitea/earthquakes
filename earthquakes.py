@@ -33,7 +33,7 @@ def get_data():
 
 def count_earthquakes(data):
     """Get the total number of earthquakes in the response."""
-    earthquakes = data["features"]  # 所有地震事件列表
+    earthquakes = data["features"]  
     return len(earthquakes)
 
 
@@ -55,7 +55,7 @@ def get_location(earthquake):
 def get_maximum(data):
     """Get the magnitude and location of the strongest earthquake in the data."""
     earthquakes = data["features"]
-    max_quake = max(earthquakes, key=get_magnitude)  # 按震级找最大值
+    max_quake = max(earthquakes, key=get_magnitude)  
     max_mag = get_magnitude(max_quake)
     max_loc = get_location(max_quake)
     return max_mag, max_loc
